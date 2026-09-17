@@ -1,0 +1,3 @@
+metric,bootstrap_iterations,confidence_level,ci_low,ci_high
+Conversion Rate Difference,10000,0.95,-0.0003066666666666634,0.0037866666666666673
+AOV Difference,10000,0.95,-0.43788724067864454,10.541909597175664

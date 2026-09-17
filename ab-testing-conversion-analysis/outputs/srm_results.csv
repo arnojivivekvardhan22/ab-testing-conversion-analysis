@@ -1,0 +1,11 @@
+metric,value
+Observed Control,75000
+Observed Variant,75000
+Expected Control,75000.0
+Expected Variant,75000.0
+Control Ratio,0.5
+Variant Ratio,0.5
+Chi-Square Statistic,0.0
+P-Value,1.0
+Alpha,0.05
+SRM Status,PASS

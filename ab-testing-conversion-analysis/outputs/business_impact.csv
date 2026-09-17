@@ -1,0 +1,8 @@
+metric,value
+Total Experiment Traffic,150000.0
+Control Conversion Rate,0.042
+Variant Conversion Rate,0.04374666666666667
+Absolute Conversion Lift,0.0017466666666666672
+Incremental Conversions,262.00000000000006
+Variant AOV,109.64975921975007
+Estimated Incremental Revenue,28728.236915574525

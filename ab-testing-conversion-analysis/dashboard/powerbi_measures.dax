@@ -1,0 +1,123 @@
+Total Sessions =
+COUNTROWS(experiment_sessions)
+
+
+Total Conversions =
+SUM(experiment_sessions[converted])
+
+
+Conversion Rate =
+DIVIDE(
+    [Total Conversions],
+    [Total Sessions]
+)
+
+
+Total Revenue =
+SUM(experiment_sessions[order_value])
+
+
+Converted Orders =
+CALCULATE(
+    COUNTROWS(experiment_sessions),
+    experiment_sessions[converted] = 1
+)
+
+
+Average Order Value =
+DIVIDE(
+    [Total Revenue],
+    [Converted Orders]
+)
+
+
+Control Conversion Rate =
+CALCULATE(
+    [Conversion Rate],
+    experiment_sessions[experiment_group] = "control"
+)
+
+
+Variant Conversion Rate =
+CALCULATE(
+    [Conversion Rate],
+    experiment_sessions[experiment_group] = "variant"
+)
+
+
+Absolute Conversion Lift =
+[Variant Conversion Rate]
+-
+[Control Conversion Rate]
+
+
+Relative Conversion Lift =
+DIVIDE(
+    [Absolute Conversion Lift],
+    [Control Conversion Rate]
+)
+
+
+Control AOV =
+CALCULATE(
+    [Average Order Value],
+    experiment_sessions[experiment_group] = "control"
+)
+
+
+Variant AOV =
+CALCULATE(
+    [Average Order Value],
+    experiment_sessions[experiment_group] = "variant"
+)
+
+
+AOV Difference =
+[Variant AOV]
+-
+[Control AOV]
+
+
+Control Revenue =
+CALCULATE(
+    [Total Revenue],
+    experiment_sessions[experiment_group] = "control"
+)
+
+
+Variant Revenue =
+CALCULATE(
+    [Total Revenue],
+    experiment_sessions[experiment_group] = "variant"
+)
+
+
+Revenue Difference =
+[Variant Revenue]
+-
+[Control Revenue]
+
+
+Cart Abandonment Sessions =
+SUM(experiment_sessions[cart_abandoned])
+
+
+Cart Abandonment Rate =
+DIVIDE(
+    [Cart Abandonment Sessions],
+    [Total Sessions]
+)
+
+
+Control Cart Abandonment Rate =
+CALCULATE(
+    [Cart Abandonment Rate],
+    experiment_sessions[experiment_group] = "control"
+)
+
+
+Variant Cart Abandonment Rate =
+CALCULATE(
+    [Cart Abandonment Rate],
+    experiment_sessions[experiment_group] = "variant"
+)
